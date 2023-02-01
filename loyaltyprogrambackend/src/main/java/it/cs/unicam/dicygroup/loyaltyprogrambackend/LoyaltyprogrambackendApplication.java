@@ -15,7 +15,6 @@ public class LoyaltyprogrambackendApplication {
     }
 
 
-
     public static void main(String[] args) {
         SpringApplication.run(LoyaltyprogrambackendApplication.class, args);
     }

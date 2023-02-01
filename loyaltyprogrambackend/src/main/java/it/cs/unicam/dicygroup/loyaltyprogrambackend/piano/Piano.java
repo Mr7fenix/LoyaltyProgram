@@ -3,7 +3,9 @@ package it.cs.unicam.dicygroup.loyaltyprogrambackend.piano;
 public interface Piano {
     public Long getId();
 
-    public String getNome();
+    public String getNomePiano();
 
-    public Integer valuta();
+    public Regola getRegola();
+
+    public Integer valutaAcquisto();
 }
