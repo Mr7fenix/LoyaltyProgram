@@ -10,7 +10,6 @@ public class RegolaLivelli implements Regola {
 
     @Override
     public Integer applica(Double importo) {
-        ;
         return (int) (importo * moltiplicatore);
     }
 }
