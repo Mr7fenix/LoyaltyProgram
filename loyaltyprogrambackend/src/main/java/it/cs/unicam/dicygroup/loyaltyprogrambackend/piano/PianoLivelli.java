@@ -12,12 +12,17 @@ public class PianoLivelli implements Piano {
     private Integer sogliaPuntiLivello;
     private Integer numeroLivelli;
 
-    public PianoLivelli(Long idPiano, Long idProprietario, String nomePiano, RegolaLivelli regolaPiano, Integer sogliaPunitLivello, Integer numeroLivelli) {
+    public PianoLivelli(Long idPiano,
+                        Long idProprietario,
+                        String nomePiano,
+                        RegolaLivelli regolaPiano,
+                        Integer sogliaPuntiLivello,
+                        Integer numeroLivelli) {
         this.idPiano = idPiano;
         this.idProprietario = idProprietario;
         this.nomePiano = nomePiano;
         this.regolaPiano = regolaPiano;
-        this.sogliaPuntiLivello = sogliaPunitLivello;
+        this.sogliaPuntiLivello = sogliaPuntiLivello;
         this.numeroLivelli = numeroLivelli;
     }
 

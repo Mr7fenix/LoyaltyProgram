@@ -8,8 +8,16 @@ public class RegolaLivelli implements Regola {
         this.moltiplicatore = moltiplicatore;
     }
 
+    public RegolaLivelli() {
+    }
+
+
     @Override
     public Integer applica(Double importo) {
         return (int) (importo * moltiplicatore);
+    }
+
+    public Double getMoltiplicatore() {
+        return moltiplicatore;
     }
 }
