@@ -4,6 +4,8 @@ import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.*;
+
 @RestController
 @RequestMapping("api/esercente")
 public class InterfacciaEsercente {
@@ -21,7 +23,7 @@ public class InterfacciaEsercente {
     }
 
     @GetMapping("/piani")
-    public String get() {
-        return "Hello";
+    public List<Piano> get() {
+        return gestorePiani.getListaPiani();
     }
 }

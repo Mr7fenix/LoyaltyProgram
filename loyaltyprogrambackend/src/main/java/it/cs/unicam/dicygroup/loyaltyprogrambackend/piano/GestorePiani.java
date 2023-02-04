@@ -17,4 +17,9 @@ public class GestorePiani {
         registroPiani.add(Objects.requireNonNull(piano));
         logger.info("Piano creato: {}\nRegola: {}", piano, piano.getRegola());
     }
+
+
+    public List<Piano> getListaPiani() {
+        return registroPiani.stream().toList();
+    }
 }
