@@ -1,10 +1,8 @@
 package it.cs.unicam.dicygroup.loyaltyprogrambackend.piano;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.esercente.Esercente;
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.acquisto.Acquisto;
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.regola.Regola;
+import com.fasterxml.jackson.annotation.*;
+import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.acquisto.*;
+import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.regola.*;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -14,14 +12,14 @@ import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.regola.Regola;
         @JsonSubTypes.Type(value = PianoPunti.class, name = "PianoPunti")
 })
 public interface Piano {
-    public Long getId();
+    Long getId();
 
-    public String getNomePiano();
+    String getNomePiano();
 
-    public Regola getRegola();
+    Regola getRegola();
 
     // TODO Controllare l'eccezione
-    public Double valutaAcquisto(Acquisto acquisto) throws Exception;
+    Integer valutaAcquisto(Acquisto acquisto);
 
-    public Esercente getProprietario();
+    Long getIdProprietario();
 }

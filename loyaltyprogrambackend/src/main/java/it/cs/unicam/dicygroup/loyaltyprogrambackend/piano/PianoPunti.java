@@ -1,16 +1,15 @@
 package it.cs.unicam.dicygroup.loyaltyprogrambackend.piano;
 
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.esercente.Esercente;
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.acquisto.Acquisto;
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.acquisto.AcquistoSoldi;
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.regola.Regola;
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.regola.RegolaPunti;
+import it.cs.unicam.dicygroup.loyaltyprogrambackend.esercente.*;
+import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.acquisto.*;
+import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.regola.*;
 
 public class PianoPunti implements Piano {
 
     private Long idPiano;
     private String nomePiano;
     private RegolaPunti regolaPiano;
+    //todo
     private Esercente proprietario;
 
     public PianoPunti(Long idPiano, Esercente proprietario, String nomePiano, RegolaPunti regolaPiano) {
@@ -36,15 +35,15 @@ public class PianoPunti implements Piano {
     }
 
     @Override
-    public Double valutaAcquisto(Acquisto acquisto) throws Exception {
+    public Integer valutaAcquisto(Acquisto acquisto) {
         if (!(acquisto instanceof AcquistoSoldi))
-            throw new Exception();
+            throw new IllegalArgumentException();
 
-        return this.regolaPiano.applica(((AcquistoSoldi) acquisto).getImporto());
+        return this.regolaPiano.applica(acquisto.getImporto());
     }
 
     @Override
-    public Esercente getProprietario() {
-        return this.proprietario;
+    public Long getIdProprietario() {
+        return this.proprietario.getId();
     }
 }
