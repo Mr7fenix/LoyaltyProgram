@@ -1,6 +1,5 @@
 package it.cs.unicam.dicygroup.loyaltyprogrambackend.piano;
 
-import it.cs.unicam.dicygroup.loyaltyprogrambackend.esercente.*;
 import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.acquisto.*;
 import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.regola.*;
 
@@ -8,22 +7,22 @@ public class PianoLivelli implements Piano {
     private Long idPiano;
     private String nomePiano;
     private RegolaLivelli regolaPiano;
-    private Esercente proprietario;
+    private Long idProprietario;
 
-    private Integer sogliaPunitLivello;
+    private Integer sogliaPuntiLivello;
     private Integer numeroLivelli;
 
-    public PianoLivelli(Long idPiano, Esercente proprietario, String nomePiano, RegolaLivelli regolaPiano, Integer sogliaPunitLivello, Integer numeroLivelli) {
+    public PianoLivelli(Long idPiano, Long idProprietario, String nomePiano, RegolaLivelli regolaPiano, Integer sogliaPunitLivello, Integer numeroLivelli) {
         this.idPiano = idPiano;
-        this.proprietario = proprietario;
+        this.idProprietario = idProprietario;
         this.nomePiano = nomePiano;
         this.regolaPiano = regolaPiano;
-        this.sogliaPunitLivello = sogliaPunitLivello;
+        this.sogliaPuntiLivello = sogliaPunitLivello;
         this.numeroLivelli = numeroLivelli;
     }
 
-    public Integer getSogliaPunitLivello() {
-        return sogliaPunitLivello;
+    public Integer getSogliaPuntiLivello() {
+        return sogliaPuntiLivello;
     }
 
     public Integer getNumeroLivelli() {
@@ -55,6 +54,6 @@ public class PianoLivelli implements Piano {
 
     @Override
     public Long getIdProprietario() {
-        return this.proprietario.getId();
+        return this.idProprietario;
     }
 }
