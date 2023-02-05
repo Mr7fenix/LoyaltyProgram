@@ -3,11 +3,7 @@ package it.cs.unicam.dicygroup.loyaltyprogrambackend.esercente;
 import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.GestorePiani;
 import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.Piano;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,7 +32,7 @@ public class InterfacciaEsercente {
     }
 
     @GetMapping("/piani")
-    public ResponseEntity<List<Piano>> getPiani() {
-        return ResponseEntity.ok(this.gestorePiani.getListaPiani());
+    public ResponseEntity<List<Piano>> getPiani(@RequestParam Long idEsercente) {
+        return ResponseEntity.ok(this.gestorePiani.getListaPiani(idEsercente));
     }
 }

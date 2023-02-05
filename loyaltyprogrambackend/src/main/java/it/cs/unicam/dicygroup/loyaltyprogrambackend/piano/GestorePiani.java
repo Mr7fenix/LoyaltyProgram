@@ -23,7 +23,9 @@ public class GestorePiani {
     }
 
 
-    public List<Piano> getListaPiani() {
-        return registroPiani.stream().toList();
+    public List<Piano> getListaPiani(Long idEsercente) {
+        return registroPiani.stream()
+                .filter(piano -> Objects.equals(piano.getIdProprietario(), idEsercente))
+                .toList();
     }
 }
