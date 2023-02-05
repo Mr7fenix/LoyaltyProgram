@@ -2,7 +2,7 @@ package it.cs.unicam.dicygroup.loyaltyprogrambackend.esercente;
 
 import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.GestorePiani;
 import it.cs.unicam.dicygroup.loyaltyprogrambackend.piano.Piano;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
@@ -25,7 +26,12 @@ public class InterfacciaEsercente {
 
     @PostMapping("/piani")
     public ResponseEntity<Piano> creazionePiano(@RequestBody Piano piano) {
-        this.gestorePiani.creaPiano(piano);
+        try {
+            this.gestorePiani.creaPiano(piano);
+        } catch (NullPointerException e) {
+            return ResponseEntity.status(BAD_REQUEST)
+                    .build();
+        }
         return new ResponseEntity<>(piano, CREATED);
     }
 
